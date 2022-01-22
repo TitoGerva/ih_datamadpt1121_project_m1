@@ -12,7 +12,7 @@ from fuzzywuzzy import process
 import analysis as aly
 
 def bicimad():
-    bicimad = pd.read_json('../ddbb/bicimaddb.json')
+    bicimad = pd.read_json('./ddbb/bicimaddb.json')
     bicimad['long_finish'] = [float(i.split(",")[0].replace("[", "")) for i in bicimad["geometry_coordinates"]] #FROM geometry_coordinates to clean and get from the LONGITUDE
     bicimad['lat_finish'] = [float(i.split(",")[1].replace("]", "")) for i in bicimad["geometry_coordinates"]] #FROM geometry_coordinates to clean and get from the LATITUDE
     bicimad = bicimad.drop(['activate', 'light','no_available','reservations_count','geometry_type','geometry_coordinates'], axis=1 ) #Cleaning unuseful columns
